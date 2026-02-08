@@ -1,0 +1,14 @@
+# Requirements for replication of "AI and the Interpretation of the Past"
+# Python 3.11+ recommended (originally developed with Python 3.11)
+# NOTE: NumPy 2.x may break pickle loading in some environments.
+# If pickle loading fails, try: pip install "numpy<2.0"
+numpy>=1.24
+pandas>=2.0
+umap-learn>=0.5.3
+hdbscan>=0.8.33
+matplotlib>=3.7
+scipy>=1.10
+gensim>=4.3
+nltk>=3.8
+Pillow>=9.0
+requests>=2.28

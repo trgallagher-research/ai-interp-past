@@ -1,0 +1,262 @@
+REPLICATION REPORT: AI and the Interpretation of the Past
+Magnani & Clindaniel
+======================================================================
+
+Python version: 3.13.2 (tags/v3.13.2:4f8bb39, Feb  4 2025, 15:23:48) [MSC v.1942 64 bit (AMD64)]
+NumPy version: 2.2.3
+UMAP version: 0.5.11
+HDBSCAN version: unknown (0.8.x)
+
+Check                                         Expected                  Actual                    Status  
+-------------------------------------------------------------------------------------------------------
+abstract_embeds row count                     2063                      2063                      PASS    
+gen_img_embeds row count                      400                       400                       PASS    
+chat_response_embeds row count                200                       200                       PASS    
+Embedding dimension                           512                       512                       PASS    
+ChatGPT general closest index                 76                        76                        PASS    
+ChatGPT general closest index (computed)      76                        76                        PASS    
+ChatGPT expert closest index (computed)       195                       195                       PASS    
+Cluster -1 (outliers) count                   22                        22                        PASS    
+Cluster 0 count                               1811                      1811                      PASS    
+Cluster 1 count                               55                        55                        PASS    
+Cluster 2 count                               39                        40                        WARN    
+Cluster 3 count                               136                       135                       WARN    
+Assignment rate                               0.9893                    0.9893359185651963        PASS    
+EOM labels (all Cluster 0)                    [0, 0, 0, 0, 0, 0, 0, 0]  [0, 0, 0, 0, 0, 0, 0, 0]  PASS    
+EOM probabilities                             [0.7543, 0.8768, 1.0, 0.  [0.8207, 0.9852, 1.0, 0.  WARN    
+Leaf assignment rate                          0.9607                    0.49442559379544354       FAIL    
+Leaf labels                                   [4, 4, 4, 4, 4, 3, -1, -  [-1, -1, -1, -1, -1, -1,  FAIL    
+Leaf probabilities                            [0.5822, 0.7483, 0.789,   [0.0, 0.0, 0.0, 0.0, 0.0  FAIL    
+Rep. age: chat_sim_general                    1963.85                   1963.85                   PASS    
+Rep. age: chat_sim_expert                     1962.4                    1962.4                    PASS    
+Rep. age: rev_general (image)                 1985.55                   1985.55                   PASS    
+Rep. age: rev_expert (image)                  1991.05                   1991.05                   PASS    
+Rep. age: norev_general (image)               1987.4                    1987.4                    PASS    
+Rep. age: norev_expert (image)                1991.05                   1991.05                   PASS    
+Rep. age: prompt_rev_general (text)           1970.7                    1970.7                    PASS    
+Rep. age: prompt_rev_expert (text)            1974.0                    1974.0                    PASS    
+
+OVERALL VERDICT: [FAIL]
+
+
+Representative Ages:
+  rev_general (image): 1985.55
+  prompt_rev_general (text): 1970.7
+  rev_expert (image): 1991.05
+  prompt_rev_expert (text): 1974.0
+  norev_general (image): 1987.4
+  norev_expert (image): 1991.05
+  chat_sim_general: 1963.85
+  chat_sim_expert: 1962.4
+
+
+Membership Results:
+  ChatGPT (general):
+    99% unclustered
+    1% in Subcluster 2
+  ChatGPT (expert):
+    99% unclustered
+    1% in Subcluster 2
+  DALL-E 3 revised prompt (general):
+    100% unclustered
+  DALL-E 3 revised prompt (expert):
+    99% unclustered
+    1% in Subcluster 1
+  DALL-E 3 Images (all):
+    90% unclustered
+    10% in Subcluster 1
+  DALL-E 3 Images (rev_general):
+    86% unclustered
+    14% in Subcluster 1
+  DALL-E 3 Images (rev_expert):
+    94% unclustered
+    6% in Subcluster 1
+  DALL-E 3 Images (norev_general):
+    86% unclustered
+    14% in Subcluster 1
+  DALL-E 3 Images (norev_expert):
+    93% unclustered
+    7% in Subcluster 1
+
+
+TF-IDF Top Terms:
+
+  ChatGPT (general):
+    biology: 0.019955
+    occurence: 0.019656
+    evolution: 0.019555
+    two: 0.018266
+    human_ecology: 0.017881
+    neanderthal: 0.017881
+    human: 0.017535
+    development: 0.017416
+    caracteres: 0.016705
+    africa: 0.016696
+    man: 0.016618
+    shanidar: 0.016375
+    tabun: 0.016375
+    may: 0.016358
+    nature: 0.015805
+    homo_sapiens: 0.015679
+    hominoid: 0.015374
+    problems: 0.015092
+    modern: 0.015035
+    hominid: 0.015012
+
+  ChatGPT (expert):
+    occurence: 0.027994
+    evolution: 0.024443
+    caracteres: 0.023610
+    development: 0.023531
+    tabun: 0.023231
+    shanidar: 0.023231
+    africa: 0.022298
+    human_ecology: 0.022289
+    may: 0.022197
+    hominoid: 0.021342
+    nature: 0.021113
+    homo_sapiens: 0.020968
+    oreopithecus: 0.020729
+    cranial_capacity: 0.020729
+    dawson: 0.020558
+    culture: 0.020149
+    waveform: 0.019597
+    threshold_amplitude: 0.019597
+    depression: 0.019597
+    human: 0.019167
+
+  DALL-E 3 (general, with revisions):
+    homo_sapiens: 0.011375
+    evolution: 0.010229
+    one: 0.009569
+    two: 0.009346
+    human: 0.009235
+    homo_erectus: 0.008956
+    recent: 0.008953
+    found: 0.008778
+    assemblages: 0.008560
+    may: 0.008249
+    species: 0.008226
+    genetic: 0.008028
+    cave: 0.007959
+    samples: 0.007788
+    used: 0.007753
+    sapiens: 0.007738
+    selection: 0.007707
+    archaeological: 0.007692
+    populations: 0.007671
+    paleolithic: 0.007605
+
+  DALL-E 3 (general, without revisions):
+    homo_sapiens: 0.011254
+    human: 0.009824
+    evolution: 0.009715
+    two: 0.009402
+    recent: 0.009326
+    one: 0.009154
+    populations: 0.009087
+    assemblages: 0.008833
+    found: 0.008681
+    homo_erectus: 0.008292
+    paleolithic: 0.008279
+    sapiens: 0.008269
+    neandertals: 0.008248
+    important: 0.008131
+    cave: 0.007882
+    used: 0.007862
+    middle_paleolithic: 0.007743
+    modern_humans: 0.007713
+    social: 0.007592
+    large: 0.007528
+
+  DALL-E 3 (expert, with and without revisions):
+    human: 0.010496
+    modern_humans: 0.009593
+    recent: 0.009479
+    archaeological: 0.009352
+    middle_paleolithic: 0.009326
+    humans: 0.008502
+    africa: 0.008473
+    used: 0.008233
+    age: 0.008139
+    region: 0.008137
+    well: 0.008105
+    populations: 0.007991
+    language: 0.007933
+    may: 0.007793
+    development: 0.007764
+    evolution: 0.007741
+    two: 0.007714
+    new: 0.007695
+    europe: 0.007551
+    found: 0.007506
+
+  Prompt Revision (general):
+    cultural: 0.014866
+    research: 0.014333
+    evolution: 0.013781
+    human: 0.013627
+    archaeological: 0.012942
+    recent: 0.012596
+    new: 0.012441
+    variation: 0.012090
+    many: 0.012071
+    one: 0.012038
+    possible: 0.011683
+    major: 0.011433
+    may: 0.011079
+    change: 0.010990
+    important: 0.010931
+    fossil: 0.010902
+    tool: 0.010877
+    hominids: 0.010852
+    population: 0.010804
+    asia: 0.010722
+
+  Prompt Revision (expert):
+    evolution: 0.014630
+    cultural: 0.013430
+    human: 0.013345
+    archaeological: 0.011639
+    recent: 0.011464
+    one: 0.011358
+    hominids: 0.011278
+    variation: 0.011245
+    hominid: 0.011183
+    homo_sapiens: 0.011136
+    morphological: 0.011120
+    possible: 0.011083
+    teeth: 0.010938
+    new: 0.010769
+    found: 0.010726
+    change: 0.010712
+    language: 0.010687
+    may: 0.010349
+    modern: 0.010347
+    major: 0.010270
+
+
+======================================================================
+ROBUSTNESS CHECKS (TIER 2)
+======================================================================
+
+12a. n_top_years Sensitivity:
+N_TOP_YEARS    ChatGPT (general)     ChatGPT (expert)      DALL-E rev_general    DALL-E rev_expert     DALL-E norev_general  DALL-E norev_expert   Prompt rev_general    Prompt rev_expert     
+5              1948.40               1946.40               1968.40               1968.40               1968.40               1968.40               1949.20               1949.20               
+10             1947.90               1945.10               1986.10               1986.10               1978.70               1977.40               1948.80               1957.20               
+15             1957.93               1957.20               1983.40               1990.87               1985.73               1987.20               1968.40               1970.00               
+20             1963.85               1962.40               1985.55               1991.05               1987.40               1991.05               1970.70               1974.00               
+25             1973.92               1972.52               1989.84               1993.08               1991.88               1988.76               1975.12               1979.64               
+30             1978.00               1976.97               1992.40               1991.70               1991.83               1992.13               1977.17               1980.43               
+40             1982.50               1982.50               1994.92               1994.92               1993.53               1993.53               1982.50               1983.78               
+50             1985.22               1985.22               1992.24               1991.60               1991.42               1991.20               1985.26               1984.52               
+
+12b. Bootstrap CIs:
+  ChatGPT (general): mean=1973.80, std=5.05, 95% CI=[1964.70, 1983.53]
+  ChatGPT (expert): mean=1973.23, std=5.18, 95% CI=[1963.65, 1982.98]
+  DALL-E rev_general: mean=1988.64, std=3.20, 95% CI=[1982.60, 1994.63]
+  DALL-E rev_expert: mean=1990.07, std=3.13, 95% CI=[1984.52, 1996.25]
+  DALL-E norev_general: mean=1987.67, std=3.34, 95% CI=[1981.65, 1994.38]
+  DALL-E norev_expert: mean=1988.28, std=3.10, 95% CI=[1982.40, 1994.40]
+  Prompt rev_general: mean=1978.60, std=4.30, 95% CI=[1970.47, 1986.80]
+  Prompt rev_expert: mean=1979.77, std=4.59, 95% CI=[1970.95, 1989.19]
